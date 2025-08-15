@@ -1,0 +1,24 @@
+version: 2
+registries:
+  python-gemfury:
+    type: python-index
+    url: https://pypi.fury.io/zerapix
+    token: ${{secrets.GEMFURY_DEPLOY_TOKEN}}
+updates:
+  - package-ecosystem: "pip"
+    insecure-external-code-execution: allow
+    registries: "*"
+    directory: "/"
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/"
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
